@@ -1,5 +1,5 @@
 
-# Locate IP Address
+# Locate the IP Address from a website
 
 This code checks the user's IP address to determine whether access to a certain web page should be allowed or denied.
 
