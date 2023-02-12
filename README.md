@@ -105,8 +105,3 @@ Otherwise, access is denied by displaying the user's IP address, as well as the 
 
 - [Hugo T](https://www.github.com/HugoTby)
 
-
-## Author
-
-- [Hugo T](https://www.github.com/HugoTby)
-
