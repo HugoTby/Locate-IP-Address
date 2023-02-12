@@ -6,7 +6,7 @@ This code checks the user's IP address to determine whether access to a certain 
 The first part is the standard HTML declaration which includes information about the web page such as document type, language, metadata, title and style sheets.
 
 
-The body of the page has a div element with the class 'centre', which will centre the elements it contains.
+The body of the page has a div element with the class 'center', which will centre the elements it contains.
 The PHP code uses the `file_get_contents` function to get the geographical information from the IP address using the `ipinfo.io` website.
 Then it checks if the 'country' property exists and if it does, if the user's country is France. If so, access to the page is allowed.
 
