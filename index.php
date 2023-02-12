@@ -14,8 +14,8 @@
     <div class="center">
     
         <?php
-        // [FR] Dans le code ci-dessous nous définiront aux lignes 39, 43 et 53 que l'adresse IP de l'utilisateur dois se situer en France.
-        // [FR] In the code below we will define in lines 39, 43 and 53 that the IP address of the user must be located in France.
+        // [FR] Dans le code ci-dessous nous définiront aux lignes 39, 43 et 52 que l'adresse IP de l'utilisateur dois se situer en France.
+        // [FR] In the code below we will define in lines 39, 43 and 52 that the IP address of the user must be located in France.
 
 
         // [GB] On include le fichier codes.php pour récupérer par la suite le nom et le drapeau du pays d'origine de l'adresse IP
@@ -40,7 +40,7 @@
 
             // [FR] On autorise l'accès au site
             // [GB] Access to the site is allowed
-            echo "<div>Bienvenue en France !<br>Votre adresse IP est : " . $ip."</div>";
+            echo "<div>Your IP address is from France! Welcome to our website :D<br>Your IP address is : " . $ip."</div>";
 
         } else {
 
@@ -49,8 +49,8 @@
             $country = property_exists($info, 'country') ? (array_key_exists($info->country, $countryCodes) ? $countryCodes[$info->country] : 'inconnu') : 'inconnu';
             echo "
                     <div class='error'>
-                        Désolé, l'accès à ce site internet n'est autorisé qu'aux utilisateurs ayant une adresse IP localisée en<strong> France 🇫🇷</strong>.<br><br>
-                        Votre adresse IP est : <strong>". $ip."</strong>, elle provient de <strong>".$country."</strong>
+                        Sorry, this website is only accessible to users with an IP address located in<strong> France 🇫🇷</strong><br><br>
+                        Your IP address is : <strong>". $ip."</strong>, and it comes from <strong>".$country."</strong>
                     </div>";
         }
 
