@@ -49,6 +49,17 @@ Use `include_once` to include and run a file once, but generate a warning instea
 
 _It is important to choose the right type of instruction depending on the need for code and error handling in your application._
 
+The file includes the name, flag and international code of all countries in the world, here is an example:
+```php
+$countryCodes = array(
+
+    'FR' => 'France 🇫🇷',
+    'GB' => 'United Kingdom 🇬🇧',
+    'KR' => 'South Korea. 🇰🇷',
+    'JP' => 'Japan 🇯🇵',
+    [...]
+);
+```
 
 ---
 ## Get the geographical information from the IP address
@@ -90,6 +101,11 @@ Otherwise, access is denied by displaying the user's IP address, as well as the 
     }
 
 ```
+## Author
+
+- [Hugo T](https://www.github.com/HugoTby)
+
+
 ## Author
 
 - [Hugo T](https://www.github.com/HugoTby)
