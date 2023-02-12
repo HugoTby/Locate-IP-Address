@@ -6,8 +6,8 @@ This code checks the user's IP address to determine whether access to a certain 
 The first part is the standard HTML declaration which includes information about the web page such as document type, language, metadata, title and style sheets.
 
 
-The body of the page has a div element with the class "centre", which will centre the elements it contains.
-The PHP code uses the file_get_contents function to get the geographical information from the IP address using the ipinfo.io site.
+The body of the page has a div element with the class 'centre', which will centre the elements it contains.
+The PHP code uses the `file_get_contents` function to get the geographical information from the IP address using the `ipinfo.io` website.
 Then it checks if the 'country' property exists and if it does, if the user's country is France. If so, access to the page is allowed.
 
 Otherwise, access is denied and an error message is displayed, indicating the user's IP address and the name and flag of his home country.
@@ -23,6 +23,7 @@ If access to the site is denied, the <div> is displayed in `#FF0000`
 .center {display: flex;justify-content: center;align-items: center;height: 100vh;}
 .error {background: rgba(255, 0, 0, 0.4);padding: 10px;border-radius: 5px;}
 ```
+![App Screenshot](https://media.discordapp.net/attachments/733366929561092157/1074383904875757679/image.png)
 
 ---
 ## Including the `codes.php` file
