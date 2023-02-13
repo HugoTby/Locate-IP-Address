@@ -101,6 +101,29 @@ Otherwise, access is denied by displaying the user's IP address, as well as the 
     }
 
 ```
+
+
+---
+## New functionality !
+
+You can now choose to deny access to certain IP addresses, from the table in the `ip_list.php` file
+
+```php
+    $localIP = array(
+        // IP addresses refused by default
+        "127.0.0.1" => "Localhost",
+        "192.168.0.1" => "Default Gateway",
+        "10.0.0.1" => "Private Network",
+        "8.8.8.8" => "Google Public DNS server",
+        
+        // here you can add the addresses you want to block, and the reason or the origin
+        // " IP " => " Reason or origin",
+    );
+
+```
+
+
+
 ## Author
 
 - [Hugo T](https://www.github.com/HugoTby)
