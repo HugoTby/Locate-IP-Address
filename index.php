@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code by HugoTby</title>
     <style>
-        .center {display: flex;justify-content: center;align-items: center;height: 100vh;}
+        .center {text-align:center;display: flex;justify-content: center;align-items: center;height: 100vh;}
         .error {background: rgba(255, 0, 0, 0.4);padding: 10px;border-radius: 5px;}
     </style>
 </head>
