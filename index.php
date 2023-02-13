@@ -60,7 +60,7 @@
 
             // [FR] Sinon, on refuse l'accès en affichant l'adresse IP de l'utilisateur, aisni que le nom et le drapeau de son pays récupérés dans le tableau du fichier codes.php
             // [GB] Otherwise, access is denied by displaying the user's IP address, as well as the name and flag of his country retrieved from the table in the codes.php file
-            $country = property_exists($info, 'country') ? (array_key_exists($info->country, $countryCodes) ? $countryCodes[$info->country] : 'inconnu') : 'inconnu';
+            $country = property_exists($info, 'country') ? (array_key_exists($info->country, $countryCodes) ? $countryCodes[$info->country] : 'Unknown location') : 'Unknown location';
             echo "
                     <div class='error'>
                         Sorry, this website is only accessible to users with an IP address located in<strong> France 🇫🇷</strong><br><br>
