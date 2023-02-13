@@ -20,7 +20,7 @@ Otherwise, access is denied and an error message is displayed, indicating the us
 
 If access to the site is denied, the div is displayed in `#FF0000` (red)
 ```css
-.center {display: flex;justify-content: center;align-items: center;height: 100vh;}
+.center {text-align:center;display: flex;justify-content: center;align-items: center;height: 100vh;}
 .error {background: rgba(255, 0, 0, 0.4);padding: 10px;border-radius: 5px;}
 ```
 ![App Screenshot](https://media.discordapp.net/attachments/733366929561092157/1074383904875757679/image.png)
