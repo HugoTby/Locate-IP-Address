@@ -139,7 +139,7 @@ You can now choose to deny access to certain IP addresses, from the table in the
 
 ---
 
-You can now choose to allow access to certain IP addresses, from the table in `white_list.php` file.
+You can now choose to allow access to certain IP addresses, from the table in the `white_list.php` file.
 
 ```php
     $whitelist = array(
