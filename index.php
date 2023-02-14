@@ -18,10 +18,11 @@
         // [GB] In the code below we will define in lines 53, 57 and 66 that the IP address of the user must be located in France.
 
 
-        // [FR] On include le fichier codes.php pour récupérer par la suite le nom et le drapeau du pays d'origine de l'adresse IP
-        // [GB] We include the codes.php file to retrieve the name and flag of the country of origin of the IP address
+        // [FR] On include les fichiers codes.php, black_list.php, white_list.php pour récupérer par la suite le nom et le drapeau du pays d'origine de l'adresse IP et l'autorisation d'accès si elle existe
+        // [GB] We include the codes.php, black_list.php, white_list.php files to retrieve the name and flag of the country of origin of the IP address and the access authorisation if it exists
         include("codes.php");
-        include("ip_list.php");
+        include("black_list.php");
+        include("white_list.php");
 
 
 
@@ -33,11 +34,10 @@
 
 
 
-
-        // [FR] On vérifie si l'ip correspond a une adresse bloquée dans la liste donnée dans le tableau `localIP` présent dans le fichier 'ip_list.php'
-        // [GB] We check if the ip corresponds to a blocked address in the list given in the `localIP` table in the 'ip_list.php' file
-        if (array_key_exists($ip, $localIP)) {
-            $ip_adress_list = $localIP[$ip];
+        // [FR] On vérifie si l'ip correspond a une adresse bloquée dans la liste donnée dans le tableau `blacklist` présent dans le fichier 'black_list.php'
+        // [GB] We check if the ip corresponds to a blocked address in the list given in the `blacklist` table in the 'black_list.php' file
+        if (array_key_exists($ip, $blacklist)) {
+            $ip_adress_list = $blacklist[$ip];
             echo "
                     <div class='error'>
                         Sorry, you have been <strong>**denied access**</strong> to this website<br><br>
@@ -48,9 +48,9 @@
 
         } 
         
-        // [FR] On vérifie si la propriété 'country' existe et si oui, si le pays de l'utilisateur est la France ( code = FR )
-        // [GB] We check if the 'country' property exists and if so, if the user's country is France ( code = FR )
-        elseif (property_exists($info, 'country') && $info->country === "FR") {
+        // [FR] On vérifie si la propriété 'country' existe et si oui, si le pays de l'utilisateur est la France ( code = FR ) ou si il est dans la liste des IP autorisées.
+        // [GB] We check if the 'country' property exists and if so, if the user's country is France ( code = FR ) or if it is in the list of authorised IPs.
+        elseif (property_exists($info, 'country') && $info->country === "FR" or in_array($ip, $whitelist)) {
 
             // [FR] On autorise l'accès au site
             // [GB] Access to the site is allowed
