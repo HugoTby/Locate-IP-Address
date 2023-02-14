@@ -75,10 +75,10 @@ $info = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
 ## Check the `country` property
 
 
-In this example, we check if the 'country' property exists and if so, if the user's country is France ( code = FR )
+In this example, we check if the 'country' property exists and if so, if the user's country is France (code = FR). We also check if the IP address of the user is known in the whitelist.
 
 ```php
-    if (property_exists($info, 'country') && $info->country === "FR") {
+    if (property_exists($info, 'country') && $info->country === "FR" or in_array($ip, $whitelist)) {
 
             // [FR] On autorise l'accès au site
             // [GB] Access to the site is allowed
@@ -92,7 +92,7 @@ Otherwise, access is denied by displaying the user's IP address, as well as the 
 ```php
     } else {
    
-            $country = property_exists($info, 'country') ? (array_key_exists($info->country, $countryCodes) ? $countryCodes[$info->country] : 'inconnu') : 'inconnu';
+            $country = property_exists($info, 'country') ? (array_key_exists($info->country, $countryCodes) ? $countryCodes[$info->country] : 'Unknown location') : 'Unknown location';
             echo "
                     <div class='error'>
                         Sorry, this website is only accessible to users with an IP address located in<strong> France 🇫🇷</strong><br><br>
@@ -106,10 +106,10 @@ Otherwise, access is denied by displaying the user's IP address, as well as the 
 ---
 ## New functionality !
 
-You can now choose to deny access to certain IP addresses, from the table in the `ip_list.php` file
+You can now choose to deny access to certain IP addresses, from the table in the `black_list.php` file
 
 ```php
-    $localIP = array(
+    $blacklist = array(
         // IP addresses refused by default
         "127.0.0.1" => "Localhost",
         "192.168.0.1" => "Default Gateway",
@@ -122,6 +122,37 @@ You can now choose to deny access to certain IP addresses, from the table in the
 
 ```
 ![App Screenshot](https://media.discordapp.net/attachments/733366929561092157/1074662496885014608/image.png)
+
+```php
+    if (array_key_exists($ip, $blacklist)) {
+            $ip_adress_list = $blacklist[$ip];
+            echo "
+                    <div class='error'>
+                        Sorry, you have been <strong>**denied access**</strong> to this website<br><br>
+                        Your IP address is : <strong>". $ip."</strong>, and it comes from <strong><mark style='border-radius:2px;padding:2px'>".$ip_adress_list."</mark></strong><br><br>
+                        If this error appears, it is likely that your IP address has been blacklisted by the developers of this site, or that it is incompatible with the use of the site.<br><br>
+                        To correct this error, please contact a site administrator or your network administrator.
+                    </div>";
+    } 
+
+```
+
+---
+
+You can now choose to allow access to certain IP addresses, from the table in `white_list.php` file.
+
+```php
+    $whitelist = array(
+        // IP addresses allowed by default
+        "192.168.1.1", 
+        "192.168.1.2", 
+        "192.168.1.3",
+
+        // here you can add the addresses you want to autorize.
+        // "XX.XX.XX.XX",
+    );
+
+```
 
 
 ## Author
